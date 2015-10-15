@@ -1,0 +1,25 @@
+NAME: Alex L Knipfer
+
+DATE (DUE/TURNED IN): September 21, 2015 
+
+PLATFORM: Mac OSX
+
+IDE: IntelliJ IDEA 14 CE
+
+*******************************
+
+NOTE: When a “Y” is being placed for the computer’s move, it takes 5 seconds to get to
+the button. The “Y” is a node (label), then sets the text of the button after the 5 
+seconds is over. Therefore, before clicking your next move wait until the animation is over or else it will generate numbers where a token already exists in a button. It generates random numbers based on what buttons are available (I.E doesn’t have a “X” or “Y” in it)
+
+Current Bugs:
+
+- Not always detecting diagonal wins
+- Not always detecting computer wins
+- When reducing the size of the board and check for wins, it throws null pointers because it’s trying to check 3 more outside of the one clicked when they don’t exist in a board at that size, it still finds the win
+- Can’t choose image before starting to play, must play a move first, then can choose images
+- Stage not resizing correctly when increasing the size of the board 
+
+************************************************************************************
+
+Approach - I began with the layout and just got basic functionality before moving in to all the minor details. After getting the board layout, resizing, etc. functioning then I moved into everything else. The part I struggled with the most was checking for wins. I tried so many different ways for checking for wins in different size boards I couldn’t get one method to work flawlessly. I feel like the best way to check would some how loop through the array of buttons checking for “X”’s, but could not get that to work which lead to the nested if’s which still don’t work 100% as listed above in the bugs. Other than that, it just took a lot of time getting images and all the small details to work, feel like I learned a LOT with this program and starting to get a lot more comfortable working with Java!
