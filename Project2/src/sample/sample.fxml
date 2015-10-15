@@ -44,7 +44,7 @@
                           </rowConstraints>
                            <children>
                               <Label text="Default Width:" textFill="#000001" />
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="newWidth" onAction="#adjustWidth" text="150" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </content>
@@ -53,7 +53,10 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
         </menus>

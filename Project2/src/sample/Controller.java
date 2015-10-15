@@ -3,21 +3,30 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class Controller {
 
     private Scanner read;
+    private List<ImageView> myImages;
+
+    @FXML
+    private TextField newWidth;
 
     @FXML
     private FlowPane mainPane;
@@ -26,6 +35,8 @@ public class Controller {
 
     @FXML
     void openUp(ActionEvent event) {
+
+        myImages = new ArrayList<ImageView>();
 
         FileChooser fc = new FileChooser();
         File furl = fc.showOpenDialog(null);
@@ -51,7 +62,7 @@ public class Controller {
             String title = read.nextLine();
 
 
-            if(type.equals(type))
+            if(type.equals("image"))
             {
                 String imgLink = dir + "/" + nameOfFile;
                 Image currentImage = new Image("file:" + imgLink);
@@ -59,6 +70,8 @@ public class Controller {
                 ImageView myImage = new ImageView(currentImage);
                 myImage.setFitWidth(150);
                 myImage.setPreserveRatio(true);
+
+                myImages.add(myImage);
 
                 VBox imageBox = new VBox();
                 Label imgTitle = new Label(title);
@@ -77,7 +90,7 @@ public class Controller {
 
                     @Override
                     public void handle(MouseEvent event) {
-                        myImage.setFitWidth(150);
+                        myImage.setFitWidth(myImage.getFitWidth() / 2);
 
                     }
                 });
@@ -86,6 +99,28 @@ public class Controller {
             }
         }
 
+    }
+
+//********************************************************************************
+
+    @FXML
+    void adjustWidth(ActionEvent event) {
+
+        double width = Double.parseDouble(newWidth.getText());
+
+        for(int x  = 0; x < myImages.size(); x++)
+        {
+            myImages.get(x).setFitWidth(width);
+        }
+    }
+
+//********************************************************************************
+
+    @FXML
+    void showAbout(ActionEvent event) {
+        About aboutPrompt = new About();
+        aboutPrompt.initModality(Modality.APPLICATION_MODAL);
+        aboutPrompt.showAndWait();
     }
 
 //********************************************************************************
