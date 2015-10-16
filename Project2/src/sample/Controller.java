@@ -3,7 +3,6 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -24,6 +23,7 @@ public class Controller {
 
     private Scanner read;
     private List<ImageView> myImages;
+    private double width;
 
     @FXML
     private TextField newWidth;
@@ -97,6 +97,13 @@ public class Controller {
 
                 mainPane.getChildren().add(imageBox);
             }
+
+            if(type.equals("media"))
+            {
+                String mediaLink = dir + "/" + nameOfFile;
+                MediaViewBox myMedia = new MediaViewBox(mediaLink);
+                mainPane.getChildren().add(myMedia);
+            }
         }
 
     }
@@ -106,11 +113,18 @@ public class Controller {
     @FXML
     void adjustWidth(ActionEvent event) {
 
-        double width = Double.parseDouble(newWidth.getText());
+        System.out.println(MediaViewBox.myVideos.size());
+
+        width = Double.parseDouble(newWidth.getText());
 
         for(int x  = 0; x < myImages.size(); x++)
         {
             myImages.get(x).setFitWidth(width);
+        }
+
+        for(int y = 0; y < MediaViewBox.myVideos.size(); y++)
+        {
+            MediaViewBox.myVideos.get(y).setFitWidth(width);
         }
     }
 
