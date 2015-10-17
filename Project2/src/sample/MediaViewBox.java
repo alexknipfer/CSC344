@@ -7,6 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -30,16 +31,19 @@ public class MediaViewBox extends VBox {
 
     private Button play;
     private Button pause;
+    private Button reset;
+
     private ProgressBar progress;
 
     public static List<MediaView> myVideos = new ArrayList<MediaView>();
 
-    public MediaViewBox(String fileName) {
-        buildBox(fileName, 150);
-
+    public MediaViewBox(String fileName, String title) {
+        buildBox(fileName, 150, title);
     }
 
-    private void buildBox(String url, double width) {
+    private void buildBox(String url, double width, String title) {
+
+        Label titleLabel =  new Label(title);
 
         media = new Media("file:" + url);
 
@@ -90,6 +94,18 @@ public class MediaViewBox extends VBox {
             }
         });
 
+        reset = new Button("RST");
+        reset.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                player.pause();
+                player.seek(new Duration(0));
+                progress.setProgress(0);
+            }
+        });
+
+
+
         player.currentTimeProperty().addListener(
                 new InvalidationListener() {
                     @Override
@@ -101,9 +117,9 @@ public class MediaViewBox extends VBox {
 
 
         HBox controls = new HBox();
-        controls.getChildren().addAll(play, pause);
+        controls.getChildren().addAll(play, pause, reset);
 
-        this.getChildren().addAll(myView, progress, controls);
+        this.getChildren().addAll(titleLabel,myView, progress, controls);
 
         myView.setFitWidth(width);
         myView.setPreserveRatio(true);

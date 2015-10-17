@@ -101,8 +101,14 @@ public class Controller {
             if(type.equals("media"))
             {
                 String mediaLink = dir + "/" + nameOfFile;
-                MediaViewBox myMedia = new MediaViewBox(mediaLink);
+                MediaViewBox myMedia = new MediaViewBox(mediaLink, title);
                 mainPane.getChildren().add(myMedia);
+            }
+
+            if(type.equals("web"))
+            {
+                WebViewBox webBox = new WebViewBox(nameOfFile);
+                mainPane.getChildren().add(webBox);
             }
         }
 
