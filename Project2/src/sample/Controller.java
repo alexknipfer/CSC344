@@ -107,7 +107,7 @@ public class Controller {
 
             if(type.equals("web"))
             {
-                WebViewBox webBox = new WebViewBox(nameOfFile);
+                WebViewBox webBox = new WebViewBox(nameOfFile, title);
                 mainPane.getChildren().add(webBox);
             }
         }
@@ -131,6 +131,11 @@ public class Controller {
         for(int y = 0; y < MediaViewBox.myVideos.size(); y++)
         {
             MediaViewBox.myVideos.get(y).setFitWidth(width);
+        }
+
+        for(int z = 0; z < WebViewBox.myWebs.size(); z++)
+        {
+            WebViewBox.myWebs.get(z).setMinWidth(width);
         }
     }
 
