@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -151,6 +152,14 @@ public class Controller {
             //turn text field value into a number
         width = Double.parseDouble(newWidth.getText());
 
+        if(width < 150 || width > 500)
+        {
+            AlertBox invalidPrompt = new AlertBox("Invalid Input, Pick number between 150 and 500");
+            invalidPrompt.initModality(Modality.APPLICATION_MODAL);
+            invalidPrompt.showAndWait();
+            return;
+        }
+
             //change width of all images
         for(int x  = 0; x < myImages.size(); x++)
         {
@@ -185,6 +194,46 @@ public class Controller {
             //i.e can't click anything else outside the prompt
         aboutPrompt.initModality(Modality.APPLICATION_MODAL);
         aboutPrompt.showAndWait();
+    }
+
+//********************************************************************************
+
+    @FXML
+    void checkContents(Event event){
+
+            //get value of whats in text field
+        TextField tf = (TextField) event.getSource();
+
+            //convert text field value to string
+        String theyTyped = tf.getText();
+
+        double theirNumber;
+
+            //convert their typed value into number (double)
+        try
+        {
+            theirNumber = Double.parseDouble(theyTyped);
+        }
+
+            //if number is invalid keep it at default (150)
+        catch(Exception e)
+        {
+            theirNumber = 150;
+        }
+
+            //if number is invalid (less than 150 or greater than 500) show red
+        if(theirNumber < 150 || theirNumber > 500)
+        {
+                //set text color to red
+            tf.setStyle("-fx-text-fill: red");
+        }
+
+            //if number is within valid range keep it black
+        else
+        {
+                //set text color to black
+            tf.setStyle("-fx-text-fill: black");
+        }
     }
 
 //********************************************************************************

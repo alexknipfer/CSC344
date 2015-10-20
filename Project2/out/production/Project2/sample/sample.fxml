@@ -44,7 +44,7 @@
                           </rowConstraints>
                            <children>
                               <Label text="Default Width:" textFill="#000001" />
-                              <TextField fx:id="newWidth" onAction="#adjustWidth" text="150" GridPane.columnIndex="1" />
+                              <TextField fx:id="newWidth" onAction="#adjustWidth" onKeyReleased="#checkContents" text="150" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </content>

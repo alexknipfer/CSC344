@@ -86,7 +86,7 @@ public class MediaViewBox extends VBox {
 
             @Override
             public void handle(MouseEvent event) {
-                    //bring width back to default by dividing by two
+                //bring width back to default by dividing by two
                 myView.setFitWidth(myView.getFitWidth() / 2);
 
             }
@@ -95,6 +95,8 @@ public class MediaViewBox extends VBox {
             //build progress bar as the same size as video from given width
         progress = new ProgressBar(0);
         progress.setMinWidth(width);
+
+//*************** PLAY BUTTON **************************************************
 
             //build new play button
         play = new Button(">");
@@ -107,7 +109,9 @@ public class MediaViewBox extends VBox {
             }
         });
 
-            //bulid new pause button
+//*************** PAUSE BUTTON **************************************************
+
+            //build new pause button
         pause = new Button("||");
 
             //pause video upon clicking
@@ -117,6 +121,8 @@ public class MediaViewBox extends VBox {
                 player.pause();
             }
         });
+
+//*************** RESET BUTTON **************************************************
 
             //build reset button
         reset = new Button("RST");
@@ -134,6 +140,8 @@ public class MediaViewBox extends VBox {
                 progress.setProgress(0);
             }
         });
+
+//********************************************************************************
 
             //keeps track of where video is at for progress bar to maintain progress
         player.currentTimeProperty().addListener(
