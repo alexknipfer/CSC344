@@ -1,0 +1,11 @@
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\bin\Debug\Project3.exe.config
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\bin\Debug\Project3.exe
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\bin\Debug\Project3.pdb
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\bin\Debug\Project3.xml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\Project3.vbprojResolveAssemblyReference.cache
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\Project3.vbproj.GenerateResource.Cache
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\Project3.exe
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\Project3.xml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\Project3\Project3\obj\Debug\Project3.pdb
