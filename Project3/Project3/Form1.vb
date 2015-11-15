@@ -4,6 +4,11 @@
     Private card As PictureBox
     Private myCards(90) As PictureBox
     Private myCardsCount As Integer
+    Private blueCount As Boolean
+    Private redCount As Boolean
+    Private yellowCount As Boolean
+    Private greenCount As Boolean
+    Private moveNumber As Integer
 
     Public Sub New()
 
@@ -13,6 +18,12 @@
         ' Add any initialization after the InitializeComponent() call.
 
 
+        blueCount = False
+        redCount = False
+        yellowCount = False
+        greenCount = False
+
+        moveNumber = 0
 
         sliderValue = 4
         buildCards(4)
@@ -38,6 +49,7 @@
         For x As Integer = 0 To totalCards - 1
             If amount = 4 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 150
                 card.Height = 150
@@ -50,6 +62,7 @@
 
             ElseIf amount = 5 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 100
                 card.Height = 100
@@ -62,6 +75,7 @@
 
             ElseIf amount = 6 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 90
                 card.Height = 90
@@ -74,6 +88,7 @@
 
             ElseIf amount = 7 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 70
                 card.Height = 70
@@ -86,6 +101,7 @@
 
             ElseIf amount = 8 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 60
                 card.Height = 60
@@ -98,6 +114,7 @@
 
             ElseIf amount = 9 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 55
                 card.Height = 55
@@ -110,6 +127,7 @@
 
             ElseIf amount = 10 Then
                 card = New PictureBox
+                AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 50
                 card.Height = 50
@@ -185,14 +203,103 @@
             End If
         Next
 
-
-
-
-
+        For v As Integer = 0 To myCardsCount - 1
+            Console.WriteLine(myCards(v).Tag)
+        Next
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Close()
+    End Sub
+
+    Private Sub card_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Dim pic As PictureBox = DirectCast(sender, PictureBox)
+
+        moveNumber = moveNumber + 1
+        Console.WriteLine(moveNumber)
+
+        If moveNumber = 1 Then
+            If pic.Tag = "blue" Then
+                pic.BackColor = Color.Blue
+                blueCount = True
+                pic.Tag = "blueSelected"
+
+            ElseIf pic.Tag = "red" Then
+                pic.BackColor = Color.Red
+                redCount = True
+                pic.Tag = "redSelected"
+
+            ElseIf pic.Tag = "green" Then
+                pic.BackColor = Color.Green
+                greenCount = True
+                pic.Tag = "greenSelected"
+
+            ElseIf pic.Tag = "yellow" Then
+                pic.BackColor = Color.Yellow
+                yellowCount = True
+                pic.Tag = "yellowSelected"
+            End If
+        End If
+
+        If moveNumber = 2 Then
+
+            If blueCount = True Then
+                For q As Integer = 0 To myCardsCount - 1
+                    If myCards(q).Tag = "blueSelected" Then
+                        mainPane.Controls.Remove(myCards(q))
+                    End If
+                Next
+                mainPane.Controls.Remove(card)
+
+            ElseIf redCount = True Then
+                For q As Integer = 0 To myCardsCount - 1
+                    If myCards(q).Tag = "redSelected" Then
+                        mainPane.Controls.Remove(myCards(q))
+                    End If
+                Next
+                mainPane.Controls.Remove(card)
+
+            ElseIf yellowCount = True Then
+                For q As Integer = 0 To myCardsCount - 1
+                    If myCards(q).Tag = "yellowSelected" Then
+                        mainPane.Controls.Remove(myCards(q))
+                    End If
+                Next
+                mainPane.Controls.Remove(card)
+
+            ElseIf greenCount = True Then
+                For q As Integer = 0 To myCardsCount - 1
+                    If myCards(q).Tag = "greenSelected" Then
+                        mainPane.Controls.Remove(myCards(q))
+                    End If
+                Next
+                mainPane.Controls.Remove(card)
+
+            Else
+                For q As Integer = 0 To myCardsCount - 1
+                    myCards(q).BackColor = Color.Olive
+
+                    If myCards(q).Tag = "blueSelected" Then
+                        myCards(q).Tag = "blue"
+
+                    ElseIf myCards(q).Tag = "redSelected" Then
+                        myCards(q).Tag = "red"
+
+                    ElseIf myCards(q).Tag = "greenSelected" Then
+                        myCards(q).Tag = "green"
+
+                    ElseIf myCards(q).Tag = "yellowSelected" Then
+                        myCards(q).Tag = "yellow"
+                    End If
+                Next
+            End If
+            moveNumber = 0
+            blueCount = False
+            yellowCount = False
+            greenCount = False
+            redCount = False
+        End If
+
     End Sub
 
     Private Sub newButton_Click(sender As Object, e As EventArgs) Handles newButton.Click
