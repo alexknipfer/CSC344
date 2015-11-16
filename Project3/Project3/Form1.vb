@@ -9,6 +9,7 @@
     Private yellowCount As Boolean
     Private greenCount As Boolean
     Private moveNumber As Integer
+    Private pairsFound As Integer
 
     Public Sub New()
 
@@ -24,6 +25,7 @@
         greenCount = False
 
         moveNumber = 0
+        pairsFound = 0
 
         sliderValue = 4
         buildCards(4)
@@ -218,86 +220,71 @@
         moveNumber = moveNumber + 1
         Console.WriteLine(moveNumber)
 
-        If moveNumber = 1 Then
-            If pic.Tag = "blue" Then
-                pic.BackColor = Color.Blue
-                blueCount = True
-                pic.Tag = "blueSelected"
+        If pic.Tag = "blue" Then
+            pic.BackColor = Color.Blue
+            pic.Tag = "blueSelected"
 
-            ElseIf pic.Tag = "red" Then
-                pic.BackColor = Color.Red
-                redCount = True
-                pic.Tag = "redSelected"
+        ElseIf pic.Tag = "red" Then
+            pic.BackColor = Color.Red
+            pic.Tag = "redSelected"
 
-            ElseIf pic.Tag = "green" Then
-                pic.BackColor = Color.Green
-                greenCount = True
-                pic.Tag = "greenSelected"
+        ElseIf pic.Tag = "yellow" Then
+            pic.BackColor = Color.Yellow
+            pic.Tag = "yellowSelected"
 
-            ElseIf pic.Tag = "yellow" Then
-                pic.BackColor = Color.Yellow
-                yellowCount = True
-                pic.Tag = "yellowSelected"
-            End If
+        ElseIf pic.Tag = "green" Then
+            pic.BackColor = Color.Green
+            pic.Tag = "greenSelected"
+
         End If
 
         If moveNumber = 2 Then
-
-            If blueCount = True Then
-                For q As Integer = 0 To myCardsCount - 1
-                    If myCards(q).Tag = "blueSelected" Then
-                        mainPane.Controls.Remove(myCards(q))
+            For q As Integer = 0 To myCardsCount - 1
+                If myCards(q).Tag = "blueSelected" Then
+                    pairsFound = pairsFound + 1
+                    If pairsFound = 2 Then
+                        For v As Integer = 0 To myCardsCount - 1
+                            If myCards(v).Tag = "blueSelected" Then
+                                mainPane.Controls.Remove(myCards(v))
+                            End If
+                        Next
                     End If
-                Next
-                mainPane.Controls.Remove(card)
 
-            ElseIf redCount = True Then
-                For q As Integer = 0 To myCardsCount - 1
-                    If myCards(q).Tag = "redSelected" Then
-                        mainPane.Controls.Remove(myCards(q))
+                ElseIf myCards(q).Tag = "redSelected" Then
+                    pairsFound = pairsFound + 1
+                    If pairsFound = 2 Then
+                        For r As Integer = 0 To myCardsCount - 1
+                            If myCards(r).Tag = "redSelected" Then
+                                mainPane.Controls.Remove(myCards(r))
+                            End If
+                        Next
                     End If
-                Next
-                mainPane.Controls.Remove(card)
 
-            ElseIf yellowCount = True Then
-                For q As Integer = 0 To myCardsCount - 1
-                    If myCards(q).Tag = "yellowSelected" Then
-                        mainPane.Controls.Remove(myCards(q))
+                ElseIf myCards(q).Tag = "greenSelected" Then
+                    pairsFound = pairsFound + 1
+                    If pairsFound = 2 Then
+                        For g As Integer = 0 To myCardsCount - 1
+                            If myCards(g).Tag = "greenSelected" Then
+                                mainPane.Controls.Remove(myCards(g))
+                            End If
+                        Next
                     End If
-                Next
-                mainPane.Controls.Remove(card)
 
-            ElseIf greenCount = True Then
-                For q As Integer = 0 To myCardsCount - 1
-                    If myCards(q).Tag = "greenSelected" Then
-                        mainPane.Controls.Remove(myCards(q))
+                ElseIf myCards(q).Tag = "yellowSelected" Then
+                    pairsFound = pairsFound + 1
+                    If pairsFound = 2 Then
+                        For y As Integer = 0 To myCardsCount - 1
+                            If myCards(y).Tag = "yellowSelected" Then
+                                mainPane.Controls.Remove(myCards(y))
+                            End If
+                        Next
                     End If
-                Next
-                mainPane.Controls.Remove(card)
 
-            Else
-                For q As Integer = 0 To myCardsCount - 1
-                    myCards(q).BackColor = Color.Olive
-
-                    If myCards(q).Tag = "blueSelected" Then
-                        myCards(q).Tag = "blue"
-
-                    ElseIf myCards(q).Tag = "redSelected" Then
-                        myCards(q).Tag = "red"
-
-                    ElseIf myCards(q).Tag = "greenSelected" Then
-                        myCards(q).Tag = "green"
-
-                    ElseIf myCards(q).Tag = "yellowSelected" Then
-                        myCards(q).Tag = "yellow"
-                    End If
-                Next
-            End If
+                End If
+            Next
             moveNumber = 0
-            blueCount = False
-            yellowCount = False
-            greenCount = False
-            redCount = False
+
+
         End If
 
     End Sub
