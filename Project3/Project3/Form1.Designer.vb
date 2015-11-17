@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cScoreLabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,6 +48,7 @@ Partial Class Form1
         Me.newButton = New System.Windows.Forms.Button()
         Me.sizeSlider = New System.Windows.Forms.TrackBar()
         Me.mainPane = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -294,7 +296,7 @@ Partial Class Form1
         Me.sizeSlider.Location = New System.Drawing.Point(70, 19)
         Me.sizeSlider.Minimum = 4
         Me.sizeSlider.Name = "sizeSlider"
-        Me.sizeSlider.Size = New System.Drawing.Size(104, 45)
+        Me.sizeSlider.Size = New System.Drawing.Size(104, 42)
         Me.sizeSlider.TabIndex = 0
         Me.sizeSlider.Value = 4
         '
@@ -304,6 +306,9 @@ Partial Class Form1
         Me.mainPane.Name = "mainPane"
         Me.mainPane.Size = New System.Drawing.Size(632, 627)
         Me.mainPane.TabIndex = 4
+        '
+        'Timer1
+        '
         '
         'Form1
         '
@@ -355,4 +360,5 @@ Partial Class Form1
     Friend WithEvents newButton As Button
     Friend WithEvents sizeSlider As TrackBar
     Friend WithEvents mainPane As FlowLayoutPanel
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

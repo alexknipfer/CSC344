@@ -9,7 +9,11 @@
     Private yellowCount As Boolean
     Private greenCount As Boolean
     Private moveNumber As Integer
-    Private pairsFound As Integer
+    Private bluePairsFound As Integer
+    Private redPairsFound As Integer
+    Private yellowPairsFound As Integer
+    Private greenPairsFound As Integer
+    Private pic As PictureBox
 
     Public Sub New()
 
@@ -25,7 +29,10 @@
         greenCount = False
 
         moveNumber = 0
-        pairsFound = 0
+        bluePairsFound = 0
+        redPairsFound = 0
+        yellowPairsFound = 0
+        greenPairsFound = 0
 
         sliderValue = 4
         buildCards(4)
@@ -215,10 +222,13 @@
     End Sub
 
     Private Sub card_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Dim pic As PictureBox = DirectCast(sender, PictureBox)
+        pic = DirectCast(sender, PictureBox)
+        Dim blueFound As Boolean = False
+        Dim redFound As Boolean = False
+        Dim yellowFound As Boolean = False
+        Dim greenFound As Boolean = False
 
         moveNumber = moveNumber + 1
-        Console.WriteLine(moveNumber)
 
         If pic.Tag = "blue" Then
             pic.BackColor = Color.Blue
@@ -237,55 +247,99 @@
             pic.Tag = "greenSelected"
 
         End If
-
+        Console.WriteLine("")
+        For d As Integer = 0 To myCardsCount - 1
+            Console.WriteLine(myCards(d).Tag)
+        Next
+        Console.WriteLine("")
         If moveNumber = 2 Then
             For q As Integer = 0 To myCardsCount - 1
                 If myCards(q).Tag = "blueSelected" Then
-                    pairsFound = pairsFound + 1
-                    If pairsFound = 2 Then
+                    bluePairsFound = bluePairsFound + 1
+                    If bluePairsFound = 2 Then
                         For v As Integer = 0 To myCardsCount - 1
                             If myCards(v).Tag = "blueSelected" Then
-                                mainPane.Controls.Remove(myCards(v))
+                                myCards(v).BackColor = Color.Transparent
+                                myCards(v).Tag = "done"
+                                blueFound = True
                             End If
                         Next
+                        MessageBox.Show("Match Found")
                     End If
 
                 ElseIf myCards(q).Tag = "redSelected" Then
-                    pairsFound = pairsFound + 1
-                    If pairsFound = 2 Then
+                    redPairsFound = redPairsFound + 1
+                    If redPairsFound = 2 Then
                         For r As Integer = 0 To myCardsCount - 1
                             If myCards(r).Tag = "redSelected" Then
-                                mainPane.Controls.Remove(myCards(r))
+                                myCards(r).BackColor = Color.Transparent
+                                myCards(r).Tag = "done"
+                                redFound = True
                             End If
                         Next
+                        MessageBox.Show("Match Found")
                     End If
 
                 ElseIf myCards(q).Tag = "greenSelected" Then
-                    pairsFound = pairsFound + 1
-                    If pairsFound = 2 Then
+                    greenPairsFound = greenPairsFound + 1
+                    If greenPairsFound = 2 Then
                         For g As Integer = 0 To myCardsCount - 1
                             If myCards(g).Tag = "greenSelected" Then
-                                mainPane.Controls.Remove(myCards(g))
+                                myCards(g).BackColor = Color.Transparent
+                                myCards(g).Tag = "done"
+                                greenFound = True
                             End If
                         Next
+                        MessageBox.Show("Match Found")
                     End If
 
                 ElseIf myCards(q).Tag = "yellowSelected" Then
-                    pairsFound = pairsFound + 1
-                    If pairsFound = 2 Then
+                    yellowPairsFound = yellowPairsFound + 1
+                    If yellowPairsFound = 2 Then
                         For y As Integer = 0 To myCardsCount - 1
                             If myCards(y).Tag = "yellowSelected" Then
-                                mainPane.Controls.Remove(myCards(y))
+                                myCards(y).BackColor = Color.Transparent
+                                myCards(y).Tag = "done"
+                                yellowFound = True
                             End If
                         Next
+                        MessageBox.Show("Match Found")
                     End If
-
                 End If
+
+                
             Next
             moveNumber = 0
+            bluePairsFound = 0
+            yellowPairsFound = 0
+            greenPairsFound = 0
+            redPairsFound = 0
 
+            If blueFound = False And redFound = False And yellowFound = False And greenFound = False Then
+                For x As Integer = 0 To myCardsCount - 1
+                    If myCards(x).Tag = "blueSelected" Then
+                        myCards(x).Tag = "blue"
+
+                    ElseIf myCards(x).Tag = "redSelected" Then
+                        myCards(x).Tag = "red"
+
+                    ElseIf myCards(x).Tag = "yellowSelected" Then
+                        myCards(x).Tag = "yellow"
+
+                    ElseIf myCards(x).Tag = "greenSelected" Then
+                        myCards(x).Tag = "green"
+
+                    End If
+
+                    If myCards(x).Tag <> "done" Then
+                        myCards(x).BackColor = Color.Olive
+                    End If
+                Next
+            End If
 
         End If
+
+
 
     End Sub
 
@@ -300,5 +354,9 @@
     Private Sub sizeSlider_ValueChanged(sender As Object, e As EventArgs) Handles sizeSlider.ValueChanged
         sliderValue = sizeSlider.Value
         sizeLabel.Text = sizeSlider.Value
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
     End Sub
 End Class
