@@ -24,23 +24,23 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cScoreLabel = New System.Windows.Forms.Label()
+        Me.cScore = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.pScoreLabel = New System.Windows.Forms.Label()
+        Me.pScore = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.yellowValue = New System.Windows.Forms.TextBox()
-        Me.greenValue = New System.Windows.Forms.TextBox()
-        Me.redValue = New System.Windows.Forms.TextBox()
-        Me.blueValue = New System.Windows.Forms.TextBox()
+        Me.yellowValueInput = New System.Windows.Forms.TextBox()
+        Me.greenValueInput = New System.Windows.Forms.TextBox()
+        Me.redValueInput = New System.Windows.Forms.TextBox()
+        Me.blueValueInput = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.imageRB = New System.Windows.Forms.RadioButton()
+        Me.grayRB = New System.Windows.Forms.RadioButton()
+        Me.oliveRB = New System.Windows.Forms.RadioButton()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.sizeLabel = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -58,9 +58,9 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.cScoreLabel)
+        Me.GroupBox1.Controls.Add(Me.cScore)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.pScoreLabel)
+        Me.GroupBox1.Controls.Add(Me.pScore)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(651, 13)
         Me.GroupBox1.Name = "GroupBox1"
@@ -69,14 +69,14 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Score"
         '
-        'cScoreLabel
+        'cScore
         '
-        Me.cScoreLabel.AutoSize = True
-        Me.cScoreLabel.Location = New System.Drawing.Point(91, 48)
-        Me.cScoreLabel.Name = "cScoreLabel"
-        Me.cScoreLabel.Size = New System.Drawing.Size(13, 13)
-        Me.cScoreLabel.TabIndex = 3
-        Me.cScoreLabel.Text = "0"
+        Me.cScore.AutoSize = True
+        Me.cScore.Location = New System.Drawing.Point(91, 48)
+        Me.cScore.Name = "cScore"
+        Me.cScore.Size = New System.Drawing.Size(13, 13)
+        Me.cScore.TabIndex = 3
+        Me.cScore.Text = "0"
         '
         'Label2
         '
@@ -87,14 +87,14 @@ Partial Class Form1
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Computer"
         '
-        'pScoreLabel
+        'pScore
         '
-        Me.pScoreLabel.AutoSize = True
-        Me.pScoreLabel.Location = New System.Drawing.Point(91, 26)
-        Me.pScoreLabel.Name = "pScoreLabel"
-        Me.pScoreLabel.Size = New System.Drawing.Size(13, 13)
-        Me.pScoreLabel.TabIndex = 1
-        Me.pScoreLabel.Text = "0"
+        Me.pScore.AutoSize = True
+        Me.pScore.Location = New System.Drawing.Point(91, 26)
+        Me.pScore.Name = "pScore"
+        Me.pScore.Size = New System.Drawing.Size(13, 13)
+        Me.pScore.TabIndex = 1
+        Me.pScore.Text = "0"
         '
         'Label1
         '
@@ -107,10 +107,10 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.yellowValue)
-        Me.GroupBox2.Controls.Add(Me.greenValue)
-        Me.GroupBox2.Controls.Add(Me.redValue)
-        Me.GroupBox2.Controls.Add(Me.blueValue)
+        Me.GroupBox2.Controls.Add(Me.yellowValueInput)
+        Me.GroupBox2.Controls.Add(Me.greenValueInput)
+        Me.GroupBox2.Controls.Add(Me.redValueInput)
+        Me.GroupBox2.Controls.Add(Me.blueValueInput)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -122,37 +122,37 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pairs Available"
         '
-        'yellowValue
+        'yellowValueInput
         '
-        Me.yellowValue.Location = New System.Drawing.Point(77, 166)
-        Me.yellowValue.Name = "yellowValue"
-        Me.yellowValue.Size = New System.Drawing.Size(25, 20)
-        Me.yellowValue.TabIndex = 7
-        Me.yellowValue.Text = "1"
+        Me.yellowValueInput.Location = New System.Drawing.Point(77, 166)
+        Me.yellowValueInput.Name = "yellowValueInput"
+        Me.yellowValueInput.Size = New System.Drawing.Size(25, 20)
+        Me.yellowValueInput.TabIndex = 7
+        Me.yellowValueInput.Text = "1"
         '
-        'greenValue
+        'greenValueInput
         '
-        Me.greenValue.Location = New System.Drawing.Point(77, 117)
-        Me.greenValue.Name = "greenValue"
-        Me.greenValue.Size = New System.Drawing.Size(25, 20)
-        Me.greenValue.TabIndex = 6
-        Me.greenValue.Text = "2"
+        Me.greenValueInput.Location = New System.Drawing.Point(77, 117)
+        Me.greenValueInput.Name = "greenValueInput"
+        Me.greenValueInput.Size = New System.Drawing.Size(25, 20)
+        Me.greenValueInput.TabIndex = 6
+        Me.greenValueInput.Text = "2"
         '
-        'redValue
+        'redValueInput
         '
-        Me.redValue.Location = New System.Drawing.Point(77, 74)
-        Me.redValue.Name = "redValue"
-        Me.redValue.Size = New System.Drawing.Size(26, 20)
-        Me.redValue.TabIndex = 5
-        Me.redValue.Text = "2"
+        Me.redValueInput.Location = New System.Drawing.Point(77, 74)
+        Me.redValueInput.Name = "redValueInput"
+        Me.redValueInput.Size = New System.Drawing.Size(26, 20)
+        Me.redValueInput.TabIndex = 5
+        Me.redValueInput.Text = "2"
         '
-        'blueValue
+        'blueValueInput
         '
-        Me.blueValue.Location = New System.Drawing.Point(77, 27)
-        Me.blueValue.Name = "blueValue"
-        Me.blueValue.Size = New System.Drawing.Size(27, 20)
-        Me.blueValue.TabIndex = 4
-        Me.blueValue.Text = "1"
+        Me.blueValueInput.Location = New System.Drawing.Point(77, 27)
+        Me.blueValueInput.Name = "blueValueInput"
+        Me.blueValueInput.Size = New System.Drawing.Size(27, 20)
+        Me.blueValueInput.TabIndex = 4
+        Me.blueValueInput.Text = "1"
         '
         'Label6
         '
@@ -196,9 +196,9 @@ Partial Class Form1
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.RadioButton3)
-        Me.GroupBox3.Controls.Add(Me.RadioButton2)
-        Me.GroupBox3.Controls.Add(Me.RadioButton1)
+        Me.GroupBox3.Controls.Add(Me.imageRB)
+        Me.GroupBox3.Controls.Add(Me.grayRB)
+        Me.GroupBox3.Controls.Add(Me.oliveRB)
         Me.GroupBox3.Location = New System.Drawing.Point(651, 329)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(180, 216)
@@ -206,40 +206,40 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Card Back"
         '
-        'RadioButton3
+        'imageRB
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(15, 81)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(54, 17)
-        Me.RadioButton3.TabIndex = 2
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Image"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.imageRB.AutoSize = True
+        Me.imageRB.Location = New System.Drawing.Point(15, 81)
+        Me.imageRB.Name = "imageRB"
+        Me.imageRB.Size = New System.Drawing.Size(54, 17)
+        Me.imageRB.TabIndex = 2
+        Me.imageRB.TabStop = True
+        Me.imageRB.Text = "Image"
+        Me.imageRB.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'grayRB
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.BackColor = System.Drawing.Color.Gray
-        Me.RadioButton2.Location = New System.Drawing.Point(15, 58)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(47, 17)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Gray"
-        Me.RadioButton2.UseVisualStyleBackColor = False
+        Me.grayRB.AutoSize = True
+        Me.grayRB.BackColor = System.Drawing.Color.Gray
+        Me.grayRB.Location = New System.Drawing.Point(15, 58)
+        Me.grayRB.Name = "grayRB"
+        Me.grayRB.Size = New System.Drawing.Size(47, 17)
+        Me.grayRB.TabIndex = 1
+        Me.grayRB.TabStop = True
+        Me.grayRB.Text = "Gray"
+        Me.grayRB.UseVisualStyleBackColor = False
         '
-        'RadioButton1
+        'oliveRB
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.BackColor = System.Drawing.Color.Olive
-        Me.RadioButton1.Location = New System.Drawing.Point(15, 35)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(49, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Olive"
-        Me.RadioButton1.UseVisualStyleBackColor = False
+        Me.oliveRB.AutoSize = True
+        Me.oliveRB.BackColor = System.Drawing.Color.Olive
+        Me.oliveRB.Location = New System.Drawing.Point(15, 35)
+        Me.oliveRB.Name = "oliveRB"
+        Me.oliveRB.Size = New System.Drawing.Size(49, 17)
+        Me.oliveRB.TabIndex = 0
+        Me.oliveRB.TabStop = True
+        Me.oliveRB.Text = "Olive"
+        Me.oliveRB.UseVisualStyleBackColor = False
         '
         'GroupBox4
         '
@@ -296,7 +296,7 @@ Partial Class Form1
         Me.sizeSlider.Location = New System.Drawing.Point(70, 19)
         Me.sizeSlider.Minimum = 4
         Me.sizeSlider.Name = "sizeSlider"
-        Me.sizeSlider.Size = New System.Drawing.Size(104, 42)
+        Me.sizeSlider.Size = New System.Drawing.Size(104, 45)
         Me.sizeSlider.TabIndex = 0
         Me.sizeSlider.Value = 4
         '
@@ -309,6 +309,7 @@ Partial Class Form1
         '
         'Timer1
         '
+        Me.Timer1.Interval = 10
         '
         'Form1
         '
@@ -336,23 +337,23 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents cScoreLabel As Label
+    Friend WithEvents cScore As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents pScoreLabel As Label
+    Friend WithEvents pScore As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents yellowValue As TextBox
-    Friend WithEvents greenValue As TextBox
-    Friend WithEvents redValue As TextBox
-    Friend WithEvents blueValue As TextBox
+    Friend WithEvents yellowValueInput As TextBox
+    Friend WithEvents greenValueInput As TextBox
+    Friend WithEvents redValueInput As TextBox
+    Friend WithEvents blueValueInput As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents imageRB As RadioButton
+    Friend WithEvents grayRB As RadioButton
+    Friend WithEvents oliveRB As RadioButton
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents sizeLabel As Label
     Friend WithEvents Label7 As Label

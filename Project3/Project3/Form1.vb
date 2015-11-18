@@ -4,10 +4,6 @@
     Private card As PictureBox
     Private myCards(90) As PictureBox
     Private myCardsCount As Integer
-    Private blueCount As Boolean
-    Private redCount As Boolean
-    Private yellowCount As Boolean
-    Private greenCount As Boolean
     Private moveNumber As Integer
     Private bluePairsFound As Integer
     Private redPairsFound As Integer
@@ -22,22 +18,20 @@
 
         ' Add any initialization after the InitializeComponent() call.
 
+        moveNumber = 0          'initialize number of moves
+        bluePairsFound = 0      'initialize total blue pairs
+        redPairsFound = 0       'initialize total red pairs
+        yellowPairsFound = 0    'initialize total yellow pairs
+        greenPairsFound = 0     'initialize total green pairs
 
-        blueCount = False
-        redCount = False
-        yellowCount = False
-        greenCount = False
+        oliveRB.Checked = True  'make olive radio button default selected
 
-        moveNumber = 0
-        bluePairsFound = 0
-        redPairsFound = 0
-        yellowPairsFound = 0
-        greenPairsFound = 0
-
+        'build default size board of size 4
         sliderValue = 4
         buildCards(4)
     End Sub
 
+    'This method builds the board size with the correct amount cards
     Public Sub buildCards(ByVal amount As Integer)
         Dim rows As Integer
         Dim cols As Integer
@@ -48,13 +42,15 @@
         Dim yellow As Integer
         Dim random As Integer
 
-        myCardsCount = 0
+        myCardsCount = 0    'keep track of card count
 
         rows = amount
         cols = amount - 1
 
+        'set total cards equal to amount of rows multiplied by rows - 1
         totalCards = rows * cols
 
+        'build cards for board size of 4
         For x As Integer = 0 To totalCards - 1
             If amount = 4 Then
                 card = New PictureBox
@@ -62,24 +58,25 @@
                 card.Visible = True
                 card.Width = 150
                 card.Height = 150
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 60, 10)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
-                mainPane.Controls.Add(card)
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 60, 10)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
+                mainPane.Controls.Add(card)                     'add card to pane (board)
 
+                'build cards for board size of 5
             ElseIf amount = 5 Then
                 card = New PictureBox
                 AddHandler card.Click, AddressOf card_Click
                 card.Visible = True
                 card.Width = 100
                 card.Height = 100
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 50, 30)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 50, 30)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
                 mainPane.Controls.Add(card)
 
             ElseIf amount = 6 Then
@@ -88,11 +85,11 @@
                 card.Visible = True
                 card.Width = 90
                 card.Height = 90
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 30, 15)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 30, 15)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
                 mainPane.Controls.Add(card)
 
             ElseIf amount = 7 Then
@@ -101,11 +98,11 @@
                 card.Visible = True
                 card.Width = 70
                 card.Height = 70
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 35, 20)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 35, 20)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
                 mainPane.Controls.Add(card)
 
             ElseIf amount = 8 Then
@@ -114,11 +111,11 @@
                 card.Visible = True
                 card.Width = 60
                 card.Height = 60
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 25, 20)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 25, 20)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
                 mainPane.Controls.Add(card)
 
             ElseIf amount = 9 Then
@@ -127,11 +124,11 @@
                 card.Visible = True
                 card.Width = 55
                 card.Height = 55
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 20, 15)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 20, 15)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
                 mainPane.Controls.Add(card)
 
             ElseIf amount = 10 Then
@@ -140,19 +137,19 @@
                 card.Visible = True
                 card.Width = 50
                 card.Height = 50
-                card.BackColor = Color.Olive
-                card.Margin = New Padding(0, 0, 15, 10)
-                card.Tag = "empty"
-                myCards(myCardsCount) = card
-                myCardsCount = myCardsCount + 1
+                card.BackColor = Color.Olive                    'default back color of olive
+                card.Margin = New Padding(0, 0, 15, 10)         'set proper padding
+                card.Tag = "empty"                              'set tag to empty to say nothing is done to it
+                myCards(myCardsCount) = card                    'add card to array
+                myCardsCount = myCardsCount + 1                 'add to card count
                 mainPane.Controls.Add(card)
             End If
         Next
 
-        blue = CInt(blueValue.Text)
-        red = CInt(redValue.Text)
-        yellow = CInt(yellowValue.Text)
-        green = CInt(greenValue.Text)
+        blue = CInt(blueValueInput.Text)
+        red = CInt(redValueInput.Text)
+        yellow = CInt(yellowValueInput.Text)
+        green = CInt(greenValueInput.Text)
 
         For y As Integer = 0 To myCardsCount - 1
             For b As Integer = 0 To (blue * 2) - 1
@@ -247,11 +244,7 @@
             pic.Tag = "greenSelected"
 
         End If
-        Console.WriteLine("")
-        For d As Integer = 0 To myCardsCount - 1
-            Console.WriteLine(myCards(d).Tag)
-        Next
-        Console.WriteLine("")
+
         If moveNumber = 2 Then
             For q As Integer = 0 To myCardsCount - 1
                 If myCards(q).Tag = "blueSelected" Then
@@ -265,6 +258,7 @@
                             End If
                         Next
                         MessageBox.Show("Match Found")
+                        pScore.Text = Val(pScore.Text) + 1
                     End If
 
                 ElseIf myCards(q).Tag = "redSelected" Then
@@ -278,6 +272,7 @@
                             End If
                         Next
                         MessageBox.Show("Match Found")
+                        pScore.Text = Val(pScore.Text) + 1
                     End If
 
                 ElseIf myCards(q).Tag = "greenSelected" Then
@@ -291,6 +286,7 @@
                             End If
                         Next
                         MessageBox.Show("Match Found")
+                        pScore.Text = Val(pScore.Text) + 1
                     End If
 
                 ElseIf myCards(q).Tag = "yellowSelected" Then
@@ -304,10 +300,10 @@
                             End If
                         Next
                         MessageBox.Show("Match Found")
+                        pScore.Text = Val(pScore.Text) + 1
                     End If
                 End If
 
-                
             Next
             moveNumber = 0
             bluePairsFound = 0
@@ -331,24 +327,66 @@
 
                     End If
 
+                    'System.Threading.Thread.Sleep(100)
                     If myCards(x).Tag <> "done" Then
                         myCards(x).BackColor = Color.Olive
                     End If
                 Next
+                MessageBox.Show("Match not found!")
             End If
 
         End If
-
-
-
     End Sub
 
     Private Sub newButton_Click(sender As Object, e As EventArgs) Handles newButton.Click
-        mainPane.Controls.Clear()
-        buildCards(sliderValue)
-        For tags As Integer = 0 To myCardsCount - 1
-            Console.WriteLine(myCards(tags).Tag)
-        Next
+        Dim blueVal As Integer
+        Dim redVal As Integer
+        Dim greenVal As Integer
+        Dim yellowVal As Integer
+        Dim totalVal As Integer
+        Dim totalCards As Integer
+
+        blueVal = CInt(blueValueInput.Text)
+        redVal = CInt(redValueInput.Text)
+        greenVal = CInt(greenValueInput.Text)
+        yellowVal = CInt(yellowValueInput.Text)
+
+        totalVal = blueVal + redVal + greenVal + yellowVal
+
+        totalCards = sliderValue * (sliderValue - 1)
+
+        If totalVal = (totalCards / 2) Then
+            mainPane.Controls.Clear()
+            buildCards(sliderValue)
+
+            If oliveRB.Checked Then
+                For x As Integer = 0 To myCardsCount - 1
+                    myCards(x).BackColor = Color.Olive
+                Next
+            End If
+
+            If grayRB.Checked Then
+                For x As Integer = 0 To myCardsCount - 1
+                    myCards(x).BackColor = Color.Gray
+                Next
+            End If
+
+            If imageRB.Checked Then
+                Dim ofd As New OpenFileDialog
+                If ofd.ShowDialog = DialogResult.OK Then
+                    If ofd.FileName <> String.Empty Then
+                        For x As Integer = 0 To myCardsCount - 1
+                            myCards(x).BackgroundImage = Bitmap.FromFile(ofd.FileName)
+                            myCards(x).BackgroundImageLayout = ImageLayout.Stretch
+                        Next
+                    End If
+                End If
+            End If
+        Else
+            MessageBox.Show("Enter a valid amount of pairs!")
+        End If
+
+
     End Sub
 
     Private Sub sizeSlider_ValueChanged(sender As Object, e As EventArgs) Handles sizeSlider.ValueChanged
@@ -357,6 +395,8 @@
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-
+        Console.WriteLine("hello")
     End Sub
+
+
 End Class
