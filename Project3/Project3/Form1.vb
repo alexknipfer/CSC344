@@ -10,6 +10,7 @@
     Private yellowPairsFound As Integer
     Private greenPairsFound As Integer
     Private pic As PictureBox
+    Private currentWidth As Integer
 
     Public Sub New()
 
@@ -23,6 +24,8 @@
         redPairsFound = 0       'initialize total red pairs
         yellowPairsFound = 0    'initialize total yellow pairs
         greenPairsFound = 0     'initialize total green pairs
+
+        currentWidth = 0
 
         oliveRB.Checked = True  'make olive radio button default selected
 
@@ -227,6 +230,7 @@
         For v As Integer = 0 To myCardsCount - 1
             Console.WriteLine(myCards(v).Tag)
         Next
+        Console.WriteLine("")
     End Sub
 
     'Quit the application when the Exit button is clicked
@@ -250,7 +254,11 @@
         'change the color to blue if user clicked blue card
         If pic.Tag = "blue" Then
             pic.BackColor = Color.Blue
+            'Timer1.Enabled = True
+
             pic.Tag = "blueSelected"    'a blue card has been selected
+            currentWidth = pic.Width
+
 
             'change the color to red if user clicked red card
         ElseIf pic.Tag = "red" Then
@@ -363,12 +371,159 @@
 
                     'System.Threading.Thread.Sleep(100)
                     If myCards(x).Tag <> "done" Then
-                        myCards(x).BackColor = Color.Olive
+                        If oliveRB.Checked = True Then
+                            myCards(x).BackColor = Color.Olive
+
+                        ElseIf grayRB.Checked Then
+                            myCards(x).BackColor = Color.Gray
+                        End If
                     End If
                 Next
                 MessageBox.Show("Match not found!") 'prompt user that a match was not found
             End If
 
+            computerMove()
+
+        End If
+    End Sub
+
+
+    'Generate a computer move after the player has played 2 moves
+    'This function randomly generates values within the range of the amount of cards
+    'currently on the board and plays the moves
+    Public Sub computerMove()
+        Dim computerRandom As Integer   'holds randomly generated move of valid cards
+
+        'The following holds the value of each found to see if computer finds match
+        Dim blueFound As Integer
+        Dim redFound As Integer
+        Dim yellowFound As Integer
+        Dim greenFound As Integer
+
+        'Initialize all card counts to 0
+        blueFound = 0
+        redFound = 0
+        yellowFound = 0
+        greenFound = 0
+
+        'Loop two times to generate a computer move twice (two moves / two cards)
+        For x As Integer = 0 To 1
+            Randomize() 'initialize randomizer
+            computerRandom = CInt(Int(((myCardsCount - 1) * Rnd()) + 0))    'generate a random move between valid cards
+
+            'Keep generating random moves for cards without tag of "done" (these cards have already been chosen by player)
+            While (True)
+                'if the card hasn't been flipped, then card is valid
+                If myCards(computerRandom).Tag <> "done" Then
+                    If myCards(computerRandom).Tag = "blue" Then
+                        blueFound = blueFound + 1                           'increase count to blue cards found
+                        myCards(computerRandom).BackColor = Color.Blue      'set the card color to blue
+                        myCards(computerRandom).Tag = "blueSelected"        'set the tag to show card has been selected
+
+                    ElseIf myCards(computerRandom).Tag = "red" Then
+                        redFound = redFound + 1                             'increase count to red cards found
+                        myCards(computerRandom).BackColor = Color.Red       'set the card color to red
+                        myCards(computerRandom).Tag = "redSelected"         'set the tag to show card has been selected
+
+                    ElseIf myCards(computerRandom).Tag = "green" Then
+                        greenFound = greenFound + 1                         'increase count to green cards found
+                        myCards(computerRandom).BackColor = Color.Green     'set the card color to green
+                        myCards(computerRandom).Tag = "greenSelected"       'set the tag to show card has been selected
+
+                    ElseIf myCards(computerRandom).Tag = "yellow" Then
+                        yellowFound = yellowFound + 1                       'increase count to yellow cards found
+                        myCards(computerRandom).BackColor = Color.Yellow    'set the card color to yellow
+                        myCards(computerRandom).Tag = "yellowSelected"      'set the tag to show card has been selected
+                    End If
+                    Exit While    'a valid card was found so exit while
+
+                    'If the first randomly generated value was a card already used, then 
+                    'generate another number (keep doing it until card is valid)
+                Else
+                    Randomize()
+                    computerRandom = CInt(Int(((myCardsCount - 1) * Rnd()) + 0))
+                End If
+            End While
+        Next
+
+        'The following removes the cards from the board if the computer found a valid
+        'pair of matching cards
+
+        'If the computer found 2 blue cards
+        If blueFound = 2 Then
+            For b As Integer = 0 To myCardsCount - 1
+                If myCards(b).Tag = "blueSelected" Then
+                    myCards(b).Tag = "done"                     'change the tag to done to show it's been removed
+                    myCards(b).BackColor = Color.Transparent    'set the background to transparent (removed)
+                End If
+            Next
+            cScore.Text = Val(cScore.Text) + 1                  'increase 1 to computer score
+            MessageBox.Show("The computer found a match")       'prompt to show computer has found a match
+
+            'If the computer found 2 red cards
+        ElseIf redFound = 2 Then
+            For r As Integer = 0 To myCardsCount - 1
+                If myCards(r).Tag = "redSelected" Then
+                    myCards(r).Tag = "done"                     'change the tag to done to show it's been removed
+                    myCards(r).BackColor = Color.Transparent    'set the background to transparent (removed)
+                End If
+            Next
+            cScore.Text = Val(cScore.Text) + 1                  'increase 1 to computer score
+            MessageBox.Show("The computer found a match")       'prompt to show computer has found a match
+
+            'If the computer found 2 green cards
+        ElseIf greenFound = 2 Then
+            For g As Integer = 0 To myCardsCount - 1
+                If myCards(g).Tag = "greenSelected" Then
+                    myCards(g).Tag = "done"                     'change the tag to done to show it's been removed
+                    myCards(g).BackColor = Color.Transparent    'set the background to transparent (removed)
+                End If
+            Next
+            cScore.Text = Val(cScore.Text) + 1                  'increase 1 to computer score
+            MessageBox.Show("The computer found a match")       'prompt to show computer has found a match
+
+        ElseIf yellowFound = 2 Then
+            For y As Integer = 0 To myCardsCount - 1
+                If myCards(y).Tag = "yellowSelected" Then
+                    myCards(y).Tag = "done"                     'change the tag to done to show it's been removed
+                    myCards(y).BackColor = Color.Transparent    'set the background to transparent (removed)
+                End If
+            Next
+            cScore.Text = Val(cScore.Text) + 1                  'increase 1 to computer score
+            MessageBox.Show("The computer found a match")       'prompt to show computer has found a match
+
+            'If the computer did not find a match then "turn" the cards back over
+        Else
+            'Go through all cards to reset
+            For y As Integer = 0 To myCardsCount - 1
+                'make sure the cards aren't already found as a match
+                If myCards(y).Tag <> "done" Then
+
+                    'If olive radio button is checked then reset card backs to olive
+                    If oliveRB.Checked = True Then
+                        myCards(y).BackColor = Color.Olive
+
+                        'If gray radio button is checked then reset card backs to gray
+                    ElseIf grayRB.Checked = True Then
+                        myCards(y).BackColor = Color.Gray
+                    End If
+
+
+                    If myCards(y).Tag = "blueSelected" Then
+                        myCards(y).Tag = "blue"     'reset the tag to blue if match wasn't found
+
+                    ElseIf myCards(y).Tag = "redSelected" Then
+                        myCards(y).Tag = "red"      'reset the tag to red if match wasn't found
+
+                    ElseIf myCards(y).Tag = "greenSelected" Then
+                        myCards(y).Tag = "green"    'reset the tag to green if match wasn't found
+
+                    ElseIf myCards(y).Tag = "yellowSelected" Then
+                        myCards(y).Tag = "yellow"   'reset the tag to yellow if match wasn't found
+                    End If
+                End If
+            Next
+            MessageBox.Show("The computer did not find a match")    'prompt to show computer did not find a match
         End If
     End Sub
 
@@ -397,6 +552,9 @@
         If totalVal = (totalCards / 2) Then
             mainPane.Controls.Clear()   'get rid of old cards
             buildCards(sliderValue)     'build new ones based on size selected
+
+            pScore.Text = 0
+            cScore.Text = 0
 
             'set card backs to olive if radio button is selected
             If oliveRB.Checked Then
@@ -439,8 +597,19 @@
 
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        'Console.WriteLine("hello")
+        pic.Width -= 1
+
+        If pic.Width = 0 Then
+            Timer1.Enabled = False
+            Timer2.Enabled = True
+        End If
+
     End Sub
 
-
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        pic.Width += 1
+        If pic.Width = currentWidth Then
+            Timer2.Enabled = False
+        End If
+    End Sub
 End Class

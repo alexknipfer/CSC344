@@ -49,6 +49,7 @@ Partial Class Form1
         Me.sizeSlider = New System.Windows.Forms.TrackBar()
         Me.mainPane = New System.Windows.Forms.FlowLayoutPanel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -309,7 +310,11 @@ Partial Class Form1
         '
         'Timer1
         '
-        Me.Timer1.Interval = 10
+        Me.Timer1.Interval = 1
+        '
+        'Timer2
+        '
+        Me.Timer2.Interval = 1
         '
         'Form1
         '
@@ -362,4 +367,5 @@ Partial Class Form1
     Friend WithEvents sizeSlider As TrackBar
     Friend WithEvents mainPane As FlowLayoutPanel
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Timer2 As Timer
 End Class
