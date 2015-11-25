@@ -4,6 +4,7 @@ Public Class Form1
 
     Private radioButtonSelected As String
     Private sizeChosen As Integer
+    Private imageDirectory As String
 
     Public Sub New()
 
@@ -22,6 +23,7 @@ Public Class Form1
 
         radioButtonSelected = "Olive"   'set default card back color to olive
         sizeChoice.SelectedItem = "4"   'set default game size to 4
+        imageDirectory = ""
 
     End Sub
 
@@ -42,6 +44,7 @@ Public Class Form1
 
         ElseIf (grayRB.Checked) Then
             radioButtonSelected = "Gray"    'store string gray if gray was selected
+
         End If
 
         sizeChosen = CInt(sizeChoice.SelectedItem.ToString) 'get the size selected from dropdown
@@ -53,6 +56,14 @@ Public Class Form1
     End Sub
 
     Private Sub imageRB_CheckedChanged(sender As Object, e As EventArgs) Handles imageRB.CheckedChanged
-
+        Dim ofd As New OpenFileDialog
+        If ofd.ShowDialog = DialogResult.OK Then
+            If ofd.FileName <> String.Empty Then
+                radioButtonSelected = ofd.FileName.ToString
+                displayImage.BackgroundImage = Bitmap.FromFile(ofd.FileName)
+                displayImage.BackgroundImageLayout = ImageLayout.Stretch
+            End If
+        End If
     End Sub
+
 End Class

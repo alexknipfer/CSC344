@@ -37,7 +37,7 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.sizeChoice = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.displayImage = New System.Windows.Forms.PictureBox()
         Me.imageRB = New System.Windows.Forms.RadioButton()
         Me.grayRB = New System.Windows.Forms.RadioButton()
         Me.oliveRB = New System.Windows.Forms.RadioButton()
@@ -45,7 +45,7 @@ Partial Class Form1
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.displayImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -188,7 +188,7 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.PictureBox2)
+        Me.GroupBox1.Controls.Add(Me.displayImage)
         Me.GroupBox1.Controls.Add(Me.imageRB)
         Me.GroupBox1.Controls.Add(Me.grayRB)
         Me.GroupBox1.Controls.Add(Me.oliveRB)
@@ -199,13 +199,13 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Card Back"
         '
-        'PictureBox2
+        'displayImage
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(417, 10)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(59, 41)
-        Me.PictureBox2.TabIndex = 3
-        Me.PictureBox2.TabStop = False
+        Me.displayImage.Location = New System.Drawing.Point(417, 10)
+        Me.displayImage.Name = "displayImage"
+        Me.displayImage.Size = New System.Drawing.Size(59, 41)
+        Me.displayImage.TabIndex = 3
+        Me.displayImage.TabStop = False
         '
         'imageRB
         '
@@ -262,7 +262,7 @@ Partial Class Form1
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.displayImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -276,7 +276,7 @@ Partial Class Form1
     Friend WithEvents imageRB As RadioButton
     Friend WithEvents grayRB As RadioButton
     Friend WithEvents oliveRB As RadioButton
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents displayImage As PictureBox
     Friend WithEvents sizeChoice As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
