@@ -23,17 +23,17 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.createFile = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.exitButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.yellowCount = New System.Windows.Forms.TextBox()
+        Me.redCount = New System.Windows.Forms.TextBox()
+        Me.greenCount = New System.Windows.Forms.TextBox()
+        Me.blueCount = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.sizeChoice = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -58,14 +58,14 @@ Partial Class Form1
         Me.createFile.Text = "Create File"
         Me.createFile.UseVisualStyleBackColor = True
         '
-        'Button2
+        'exitButton
         '
-        Me.Button2.Location = New System.Drawing.Point(407, 232)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Exit"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.exitButton.Location = New System.Drawing.Point(407, 232)
+        Me.exitButton.Name = "exitButton"
+        Me.exitButton.Size = New System.Drawing.Size(75, 23)
+        Me.exitButton.TabIndex = 1
+        Me.exitButton.Text = "Exit"
+        Me.exitButton.UseVisualStyleBackColor = True
         '
         'Panel1
         '
@@ -76,7 +76,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.sizeChoice)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.exitButton)
         Me.Panel1.Controls.Add(Me.createFile)
         Me.Panel1.Location = New System.Drawing.Point(-1, 0)
         Me.Panel1.Name = "Panel1"
@@ -89,10 +89,10 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.TextBox4)
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
-        Me.GroupBox2.Controls.Add(Me.TextBox3)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.yellowCount)
+        Me.GroupBox2.Controls.Add(Me.redCount)
+        Me.GroupBox2.Controls.Add(Me.greenCount)
+        Me.GroupBox2.Controls.Add(Me.blueCount)
         Me.GroupBox2.Location = New System.Drawing.Point(7, 154)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(482, 58)
@@ -136,37 +136,37 @@ Partial Class Form1
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Blue:"
         '
-        'TextBox4
+        'yellowCount
         '
-        Me.TextBox4.Location = New System.Drawing.Point(421, 22)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(27, 20)
-        Me.TextBox4.TabIndex = 2
-        Me.TextBox4.Text = "1"
+        Me.yellowCount.Location = New System.Drawing.Point(421, 22)
+        Me.yellowCount.Name = "yellowCount"
+        Me.yellowCount.Size = New System.Drawing.Size(27, 20)
+        Me.yellowCount.TabIndex = 2
+        Me.yellowCount.Text = "1"
         '
-        'TextBox2
+        'redCount
         '
-        Me.TextBox2.Location = New System.Drawing.Point(187, 22)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(27, 20)
-        Me.TextBox2.TabIndex = 0
-        Me.TextBox2.Text = "2"
+        Me.redCount.Location = New System.Drawing.Point(187, 22)
+        Me.redCount.Name = "redCount"
+        Me.redCount.Size = New System.Drawing.Size(27, 20)
+        Me.redCount.TabIndex = 0
+        Me.redCount.Text = "2"
         '
-        'TextBox3
+        'greenCount
         '
-        Me.TextBox3.Location = New System.Drawing.Point(306, 22)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(27, 20)
-        Me.TextBox3.TabIndex = 1
-        Me.TextBox3.Text = "2"
+        Me.greenCount.Location = New System.Drawing.Point(306, 22)
+        Me.greenCount.Name = "greenCount"
+        Me.greenCount.Size = New System.Drawing.Size(27, 20)
+        Me.greenCount.TabIndex = 1
+        Me.greenCount.Text = "2"
         '
-        'TextBox1
+        'blueCount
         '
-        Me.TextBox1.Location = New System.Drawing.Point(70, 22)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(27, 20)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = "1"
+        Me.blueCount.Location = New System.Drawing.Point(70, 22)
+        Me.blueCount.Name = "blueCount"
+        Me.blueCount.Size = New System.Drawing.Size(27, 20)
+        Me.blueCount.TabIndex = 0
+        Me.blueCount.Text = "1"
         '
         'Label1
         '
@@ -269,7 +269,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents createFile As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents exitButton As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents GroupBox1 As GroupBox
@@ -284,8 +284,8 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents yellowCount As TextBox
+    Friend WithEvents redCount As TextBox
+    Friend WithEvents greenCount As TextBox
+    Friend WithEvents blueCount As TextBox
 End Class
