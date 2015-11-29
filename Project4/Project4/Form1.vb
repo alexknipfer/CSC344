@@ -74,6 +74,19 @@ Public Class Form1
 
             fileWriter.WriteLine(radioButtonSelected)   'print which card back color to file
             fileWriter.WriteLine(sizeChosen)            'print size board they want to file
+
+            Dim count As Integer = 0
+
+            For p As Integer = 0 To (sizeChosen - 1)
+                For q As Integer = 0 To (sizeChosen - 2)
+                    fileWriter.Write(myCards(count).PadRight(8))
+                    count = count + 1
+                Next
+                fileWriter.WriteLine("")
+            Next
+
+            count = 0
+
             fileWriter.Close()
 
             'if number of pairs entered was valid prompt to enter again
