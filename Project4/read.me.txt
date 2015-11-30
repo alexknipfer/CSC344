@@ -1,0 +1,48 @@
+Alex Knipfer
+
+Date Due: 12/4/2015
+
+Platform: Windows 10 (Used Visual Studio 2015)
+
+*******************************************************************
+
+Current Bugs:
+- When creating a file, if you cancel out of the file save dialog, it will throw
+  null exception errors
+- If you select the image radio button then go back to selecting another radio button,
+  it will prompt for an image again
+
+*******************************************************************
+
+Design (Layout): 
+
+Visual Hierarchy: 
+I knew going into this program that the interface itself wouldn't have a whole lot to it, so
+I had troubles trying to figure out how to create a good layout with the proper amount of 
+white space. I used whitespace equally between each group of content to equally space out each group
+of input, then equal whitespace between all of the labels and text boxes for easy readability
+
+Alignment:
+I kept everything in a horizontal pattern. The Card Back selection and the pair selection is all aligned horizontally following a very linear pattern which makes this application really easy to navigate
+
+Patterns:
+
+Titled Sections:
+My application is broke down into titled sections to make it easy for the user to figure out what their selecting to generate the matching game file. I believe the titled sections make the interface look really clean and easy to use
+
+Left Alignment:
+All textbox labels are left aligned with equal white space to make it easy for the user to know which textbox belongs to the proper label.
+
+Deferred Choices:
+I use default values for all input in the application to generate a default file for a matching game.Users can change to their desired settings.
+
+Center Stage:
+Card back and Set up Pairs is set up in the very center of the application considering those are important to generating the file. I spaced those below the header (image) to center them properly.
+
+*******************************************************************************
+
+My approach: 
+I went through a couple of different layouts before I completed this one. I wanted something really simple and easy to use. I was trying to utilize some of the tabbed patterns, etc. but it started to look really sloppy for a application that was as small and simple as this one. I then didn't like the top of my application, that's when I created the "header" for this program, I felt it worked fine in a application like this one. I also kept trying to decide whether or not to put descriptions for the inputs (for example, I almost wanted to say the number of pairs must add up to half of the number of total cards in case their unaware and don't get frustrated when they click "Create File" and see a error prompt). But, I figured if their using this appliation they must have used the matching game application and know what needs to be generated.
+
+
+
