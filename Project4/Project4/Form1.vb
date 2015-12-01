@@ -30,7 +30,6 @@ Public Class Form1
         radioButtonSelected = "Olive"   'set default card back color to olive
         sizeChoice.SelectedItem = "4"   'set default game size to 4
         imageDirectory = ""
-
     End Sub
 
 
@@ -75,19 +74,25 @@ Public Class Form1
             fileWriter.WriteLine(radioButtonSelected)   'print which card back color to file
             fileWriter.WriteLine(sizeChosen)            'print size board they want to file
 
+            'initialize count to print out array values
             Dim count As Integer = 0
 
+            'loop through the array and print out array values (string of colors)
+            'in the form of the layout of the game
             For p As Integer = 0 To (sizeChosen - 1)
                 For q As Integer = 0 To (sizeChosen - 2)
-                    fileWriter.Write(myCards(count).PadRight(8))
-                    count = count + 1
+                    fileWriter.Write(myCards(count).PadRight(8))    'line up all of the card values with padding
+                    count = count + 1 'increase count
                 Next
-                fileWriter.WriteLine("")
+                fileWriter.WriteLine("")    'drop down a line
             Next
 
+            'reset count so if a new file is created 
             count = 0
 
-            fileWriter.Close()
+            fileWriter.Close()  'close file writer
+
+            MessageBox.Show("File Created Successfully!")   'prompt to show file created successfully
 
             'if number of pairs entered was valid prompt to enter again
         Else
@@ -97,6 +102,7 @@ Public Class Form1
 
     End Sub
 
+    'prompt a file dialog to choose an image as soon as image radio button is clicked
     Private Sub imageRB_CheckedChanged(sender As Object, e As EventArgs) Handles imageRB.CheckedChanged
         Dim ofd As New OpenFileDialog
         If ofd.ShowDialog = DialogResult.OK Then
@@ -108,24 +114,33 @@ Public Class Form1
         End If
     End Sub
 
+    'the following function builds the array of card colors randomly based on number
+    'of pairs users entered
     Public Sub buildCards(ByVal totalSize As Integer)
         Dim random As Integer
-        Dim myCardsCount = totalSize - 1
+        Dim myCardsCount = totalSize - 1    'get total cards being used
 
+        'initialize card array to have all string values of blank
         For x As Integer = 0 To myCardsCount
             myCards(x) = "blank"
         Next
 
+        'go through all card values in array
         For y As Integer = 0 To myCardsCount
 
+            'go through array as many times as the pairs selected for blue
             For b As Integer = 0 To (blueVal * 2) - 1
-                Randomize()
-                random = CInt(Int(((myCardsCount) * Rnd()) + 0))
+                Randomize() 'initialize randomizer
+                random = CInt(Int(((myCardsCount) * Rnd()) + 0))    'generate a random number within array bounds
 
+                'keep generating values until filled
                 While (True)
+                    'if the random number generated in the array is blank it is valid to change
                     If myCards(random).Equals("blank") Then
-                        myCards(random) = "Blue"
+                        myCards(random) = "Blue"    'set equal to blue
                         Exit While
+
+                        'if the generated number has already been used, generate another number
                     Else
                         Randomize()
                         random = CInt(Int(((myCardsCount) * Rnd()) + 0))
@@ -133,13 +148,17 @@ Public Class Form1
                 End While
             Next
 
+            'go through array as many times as the pairs selected for red
             For r As Integer = 0 To (redVal * 2) - 1
-                Randomize()
-                random = CInt(Int(((myCardsCount) * Rnd()) + 0))
+                Randomize() 'initialize randomizer
+                random = CInt(Int(((myCardsCount) * Rnd()) + 0))    'generate a random number within array bounds
                 While (True)
+                    'if the random number generated in the array is blank it is valid to change
                     If myCards(random).Equals("blank") Then
-                        myCards(random) = "Red"
+                        myCards(random) = "Red"     'set equal to red
                         Exit While
+
+                        'if the generated number has already been used, generate another number
                     Else
                         Randomize()
                         random = CInt(Int(((myCardsCount) * Rnd()) + 0))
@@ -147,13 +166,17 @@ Public Class Form1
                 End While
             Next
 
+            'go through array as many times as the pairs selected for green
             For g As Integer = 0 To (greenVal * 2) - 1
-                Randomize()
-                random = CInt(Int(((myCardsCount) * Rnd()) + 0))
+                Randomize() 'initialize randomizer
+                random = CInt(Int(((myCardsCount) * Rnd()) + 0))    'generate a random number within array bounds
                 While (True)
+                    'if the random number generated in the array is blank it is valid to change
                     If myCards(random).Equals("blank") Then
-                        myCards(random) = "Green"
+                        myCards(random) = "Green"       'set equal to green
                         Exit While
+
+                        'if the generated number has already been used, generate another number
                     Else
                         Randomize()
                         random = CInt(Int(((myCardsCount) * Rnd()) + 0))
@@ -163,19 +186,31 @@ Public Class Form1
             Exit For
         Next
 
+        'set any remaining card backs to yellow
         For y As Integer = 0 To myCardsCount
             If myCards(y).Equals("blank") Then
                 myCards(y) = "Yellow"
             End If
         Next
 
-        For y As Integer = 0 To totalSize
-            Console.WriteLine(myCards(y))
-        Next
-
     End Sub
 
     Private Sub exitButton_Click(sender As Object, e As EventArgs) Handles exitButton.Click
         Close()     'exit application
+    End Sub
+
+    Private Sub sizeChoice_SelectedValueChanged(sender As Object, e As EventArgs) Handles sizeChoice.SelectedValueChanged
+        Dim selectedValue As Integer
+        Dim totalCardsSelected As Integer
+        Dim pairsNeeded As Integer
+
+        selectedValue = CInt(sizeChoice.SelectedItem.ToString)
+
+        totalCardsSelected = selectedValue * (selectedValue - 1)
+        pairsNeeded = totalCardsSelected / 2
+
+        cardTotalLabel.Text = totalCardsSelected
+
+        totalPairsLabel.Text = pairsNeeded
     End Sub
 End Class

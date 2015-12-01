@@ -25,6 +25,9 @@ Partial Class Form1
         Me.createFile = New System.Windows.Forms.Button()
         Me.exitButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cardTotalLabel = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -42,6 +45,8 @@ Partial Class Form1
         Me.grayRB = New System.Windows.Forms.RadioButton()
         Me.oliveRB = New System.Windows.Forms.RadioButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.totalPairsLabel = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -71,6 +76,9 @@ Partial Class Form1
         '
         Me.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.cardTotalLabel)
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.sizeChoice)
@@ -83,8 +91,38 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(497, 268)
         Me.Panel1.TabIndex = 3
         '
+        'cardTotalLabel
+        '
+        Me.cardTotalLabel.AutoSize = True
+        Me.cardTotalLabel.BackColor = System.Drawing.Color.MistyRose
+        Me.cardTotalLabel.Location = New System.Drawing.Point(126, 247)
+        Me.cardTotalLabel.Name = "cardTotalLabel"
+        Me.cardTotalLabel.Size = New System.Drawing.Size(19, 13)
+        Me.cardTotalLabel.TabIndex = 9
+        Me.cardTotalLabel.Text = "12"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(151, 247)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(36, 13)
+        Me.Label7.TabIndex = 8
+        Me.Label7.Text = "cards."
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(8, 247)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(112, 13)
+        Me.Label6.TabIndex = 7
+        Me.Label6.Text = "Your board consists of"
+        '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.totalPairsLabel)
+        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -93,9 +131,9 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.redCount)
         Me.GroupBox2.Controls.Add(Me.greenCount)
         Me.GroupBox2.Controls.Add(Me.blueCount)
-        Me.GroupBox2.Location = New System.Drawing.Point(7, 154)
+        Me.GroupBox2.Location = New System.Drawing.Point(7, 147)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(482, 58)
+        Me.GroupBox2.Size = New System.Drawing.Size(482, 66)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Set Up Pairs"
@@ -171,7 +209,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 232)
+        Me.Label1.Location = New System.Drawing.Point(8, 223)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(117, 13)
         Me.Label1.TabIndex = 5
@@ -180,7 +218,7 @@ Partial Class Form1
         'sizeChoice
         '
         Me.sizeChoice.FormattingEnabled = True
-        Me.sizeChoice.Location = New System.Drawing.Point(154, 228)
+        Me.sizeChoice.Location = New System.Drawing.Point(133, 219)
         Me.sizeChoice.Name = "sizeChoice"
         Me.sizeChoice.Size = New System.Drawing.Size(121, 21)
         Me.sizeChoice.TabIndex = 4
@@ -248,6 +286,24 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(239, 48)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(215, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Note: The number of pairs should add up to:"
+        '
+        'totalPairsLabel
+        '
+        Me.totalPairsLabel.AutoSize = True
+        Me.totalPairsLabel.Location = New System.Drawing.Point(455, 48)
+        Me.totalPairsLabel.Name = "totalPairsLabel"
+        Me.totalPairsLabel.Size = New System.Drawing.Size(13, 13)
+        Me.totalPairsLabel.TabIndex = 8
+        Me.totalPairsLabel.Text = "6"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,4 +344,9 @@ Partial Class Form1
     Friend WithEvents redCount As TextBox
     Friend WithEvents greenCount As TextBox
     Friend WithEvents blueCount As TextBox
+    Friend WithEvents cardTotalLabel As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents totalPairsLabel As Label
 End Class
