@@ -29,6 +29,8 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.totalPairsLabel = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,8 +47,6 @@ Partial Class Form1
         Me.grayRB = New System.Windows.Forms.RadioButton()
         Me.oliveRB = New System.Windows.Forms.RadioButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.totalPairsLabel = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -137,6 +137,25 @@ Partial Class Form1
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Set Up Pairs"
+        '
+        'totalPairsLabel
+        '
+        Me.totalPairsLabel.AutoSize = True
+        Me.totalPairsLabel.BackColor = System.Drawing.Color.MistyRose
+        Me.totalPairsLabel.Location = New System.Drawing.Point(455, 48)
+        Me.totalPairsLabel.Name = "totalPairsLabel"
+        Me.totalPairsLabel.Size = New System.Drawing.Size(13, 13)
+        Me.totalPairsLabel.TabIndex = 8
+        Me.totalPairsLabel.Text = "6"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(239, 48)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(215, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Note: The number of pairs should add up to:"
         '
         'Label5
         '
@@ -285,24 +304,6 @@ Partial Class Form1
         Me.PictureBox1.Size = New System.Drawing.Size(497, 114)
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(239, 48)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(215, 13)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Note: The number of pairs should add up to:"
-        '
-        'totalPairsLabel
-        '
-        Me.totalPairsLabel.AutoSize = True
-        Me.totalPairsLabel.Location = New System.Drawing.Point(455, 48)
-        Me.totalPairsLabel.Name = "totalPairsLabel"
-        Me.totalPairsLabel.Size = New System.Drawing.Size(13, 13)
-        Me.totalPairsLabel.TabIndex = 8
-        Me.totalPairsLabel.Text = "6"
         '
         'Form1
         '

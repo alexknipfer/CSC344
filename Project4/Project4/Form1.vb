@@ -1,16 +1,22 @@
-﻿Imports System.IO
+﻿' NAME: ALEX KNIPFER
+' DATE: 12/4/2015
+' CLASS: CSC344
+' PROFESSOR: DR. BLYTHE
+
+
+Imports System.IO
 
 Public Class Form1
 
-    Private radioButtonSelected As String
-    Private sizeChosen As Integer
-    Private imageDirectory As String
-    Private myCards(90) As String
+    Private radioButtonSelected As String   'keeps track of which radio button is selected
+    Private sizeChosen As Integer           'holds size of board from dropdown selection
+    Private imageDirectory As String        'holds the image directory if they choose an image
+    Private myCards(90) As String           'holds all cards (strings of colors red,green,blue,yellow)
 
-    Private blueVal As Integer
-    Private redVal As Integer
-    Private yellowVal As Integer
-    Private greenVal As Integer
+    Private blueVal As Integer              'holds value of blue pairs entered
+    Private redVal As Integer               'holds value of red pairs entered
+    Private yellowVal As Integer            'holds value of yellow pairs entered
+    Private greenVal As Integer             'holds value of green pairs entered
 
     Public Sub New()
 
@@ -64,6 +70,12 @@ Public Class Form1
             buildCards(totalSize)
 
             dialog = New SaveFileDialog     'create new save file dialog
+
+            'the following sets the default extension to a text file
+            'in case they don't type ".txt" after file name
+            dialog.DefaultExt = "txt"
+            dialog.Filter = "Text Files | *.txt"
+
             dialog.ShowDialog()             'show the user the dialog
 
             'create the file writer
@@ -199,18 +211,19 @@ Public Class Form1
         Close()     'exit application
     End Sub
 
+    'the following function is called if the every time the user changes the board size in the dropdown
     Private Sub sizeChoice_SelectedValueChanged(sender As Object, e As EventArgs) Handles sizeChoice.SelectedValueChanged
-        Dim selectedValue As Integer
-        Dim totalCardsSelected As Integer
-        Dim pairsNeeded As Integer
+        Dim selectedValue As Integer    'value currently selected in drop down
+        Dim totalCardsSelected As Integer   'value that holds total cards on board
+        Dim pairsNeeded As Integer  'total all pairs must add up to
 
-        selectedValue = CInt(sizeChoice.SelectedItem.ToString)
+        selectedValue = CInt(sizeChoice.SelectedItem.ToString)  'get the value from the dropdown as an integer
 
-        totalCardsSelected = selectedValue * (selectedValue - 1)
-        pairsNeeded = totalCardsSelected / 2
+        totalCardsSelected = selectedValue * (selectedValue - 1)    'calculate total amount of cards
+        pairsNeeded = totalCardsSelected / 2    'calculate pairs total (half of total amount of cards)
 
-        cardTotalLabel.Text = totalCardsSelected
+        cardTotalLabel.Text = totalCardsSelected    'change the label to display how many cards are selected
 
-        totalPairsLabel.Text = pairsNeeded
+        totalPairsLabel.Text = pairsNeeded  'change the label to display how many pairs there must be
     End Sub
 End Class

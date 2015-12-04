@@ -42,3 +42,14 @@ C:\Users\Alex\Downloads\CSC344Project4FINAL\CSC344-master\CSC344-master\Project4
 C:\Users\Alex\Downloads\CSC344Project4FINAL\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\WindowsApplication1.Form1.resources
 C:\Users\Alex\Downloads\CSC344Project4FINAL\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\WindowsApplication1.Resources.resources
 C:\Users\Alex\Downloads\CSC344Project4FINAL\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\Project4.vbproj.GenerateResource.Cache
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\bin\Debug\Project4.exe.config
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\Project4.exe
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\Project4.xml
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\Project4.pdb
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\bin\Debug\Project4.exe
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\bin\Debug\Project4.pdb
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\bin\Debug\Project4.xml
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\Project4.vbprojResolveAssemblyReference.cache
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\Alex\Downloads\CSC344-master\CSC344-master\CSC344-master\Project4\Project4\obj\Debug\Project4.vbproj.GenerateResource.Cache

@@ -1,10 +1,15 @@
 Alex Knipfer
 
+
 Date Due: 12/4/2015
+
 
 Platform: Windows 10 (Used Visual Studio 2015)
 
+
+
 *******************************************************************
+
 
 Current Bugs:
 - When creating a file, if you cancel out of the file save dialog, it will throw
@@ -13,6 +18,8 @@ Current Bugs:
   it will prompt for an image again
 
 *******************************************************************
+
+
 
 Design (Layout): 
 
@@ -24,6 +31,8 @@ of input, then equal whitespace between all of the labels and text boxes for eas
 
 Alignment:
 I kept everything in a horizontal pattern. The Card Back selection and the pair selection is all aligned horizontally following a very linear pattern which makes this application really easy to navigate
+
+
 
 Patterns:
 
@@ -39,7 +48,9 @@ I use default values for all input in the application to generate a default file
 Center Stage:
 Card back and Set up Pairs is set up in the very center of the application considering those are important to generating the file. I spaced those below the header (image) to center them properly.
 
+
 *******************************************************************************
+
 
 My approach: 
 I went through a couple of different layouts before I completed this one. I wanted something really simple and easy to use. I was trying to utilize some of the tabbed patterns, etc. but it started to look really sloppy for a application that was as small and simple as this one. I then didn't like the top of my application, that's when I created the "header" for this program, I felt it worked fine in a application like this one. I also kept trying to decide whether or not to put descriptions for the inputs (for example, I almost wanted to say the number of pairs must add up to half of the number of total cards in case their unaware and don't get frustrated when they click "Create File" and see a error prompt). But, I figured if their using this appliation they must have used the matching game application and know what needs to be generated.
